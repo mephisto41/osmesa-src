@@ -342,8 +342,8 @@ class DelegatingJITMemoryManager : public BaseMemoryManager {
       virtual void registerEHFrames(uint8_t *Addr, uint64_t LoadAddr, size_t Size) {
          mgr()->registerEHFrames(Addr, LoadAddr, Size);
       }
-      virtual void deregisterEHFrames(uint8_t *Addr, uint64_t LoadAddr, size_t Size) {
-         mgr()->deregisterEHFrames(Addr, LoadAddr, Size);
+      virtual void deregisterEHFrames() {
+         mgr()->deregisterEHFrames();
       }
 #else
       virtual void registerEHFrames(llvm::StringRef SectionData) {
